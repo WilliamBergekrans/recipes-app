@@ -13,6 +13,7 @@ def create_app(test_config=None):
     )
 
     # enable CORS
+    # Change this when in production to only allow access from the client.
     CORS(app, resources={r'/*': {'origins': '*'}})
 
     if test_config is None:
