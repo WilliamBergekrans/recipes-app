@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask
+from flask import Flask, jsonify
+from flask_cors import CORS
 
 
 def create_app(test_config=None):
@@ -10,6 +11,9 @@ def create_app(test_config=None):
         SECRET_KEY='dev',  # Change to a random key when in production
         DATABASE=os.path.join(app.instance_path, 'database.sqlite'),
     )
+
+    # enable CORS
+    CORS(app, resources={r'/*': {'origins': '*'}})
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -32,5 +36,9 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
+
+    @app.route('/ping', methods=['GET'])
+    def ping_pong():
+        return jsonify('pong!')
 
     return app
