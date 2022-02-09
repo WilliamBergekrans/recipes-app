@@ -1,15 +1,38 @@
 <template>
   <v-app>
-    <v-app-bar app color="lime" dark>
+    <!--Navbar-->
+    <v-app-bar app color="light green darken 3" dark>
       <div class="d-flex align-center">
-        <h1>Min receptbank</h1>
+        <h1>Receptbank</h1>
       </div>
 
       <v-spacer></v-spacer>
-      <router-link to="/about"> Om </router-link>
-      <v-icon>mdi-open-in-new</v-icon>
+
+      <v-btn
+        :disabled="loading"
+        to="/my-recipes"
+        class="ma-1"
+        color="white"
+        plain
+      >
+        Recept
+      </v-btn>
+      <v-btn
+        :disabled="loading"
+        to="/inventory"
+        class="ma-1"
+        color="white"
+        plain
+      >
+        Skafferi
+      </v-btn>
+
+      <v-btn :disabled="loading" to="/about" class="ma-1" color="white" plain>
+        Om
+      </v-btn>
     </v-app-bar>
 
+    <!--Content-->
     <v-main>
       <router-view />
     </v-main>
@@ -25,3 +48,9 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+</style>
