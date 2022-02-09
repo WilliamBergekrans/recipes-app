@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/"></router-link> |
+    <router-link to="/about">Mina recept</router-link>
   </div>
 </template>
