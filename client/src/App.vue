@@ -3,7 +3,7 @@
     <!--Navbar-->
     <v-app-bar app color="light green darken 3" dark>
       <div class="d-flex align-center">
-        <h1>Receptbank</h1>
+        <router-link to="/" id="title">Receptbank</router-link>
       </div>
 
       <v-spacer></v-spacer>
@@ -32,7 +32,6 @@
       </v-btn>
     </v-app-bar>
 
-    <!--Content-->
     <v-main>
       <router-view />
     </v-main>
@@ -50,7 +49,10 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-family: Helvetica, Arial, sans-serif;
+#title {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
 }
 </style>
