@@ -33,13 +33,7 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
-
-    @app.route('/ping', methods=['GET'])
-    def ping_pong():
-        return jsonify('pong!')
+    from . import recipes
+    app.register_blueprint(recipes.bp)
 
     return app
