@@ -33,9 +33,13 @@
 
       <div v-if="!$auth.loading">
         <!-- show login when not authenticated -->
-        <v-btn v-if="!$auth.isAuthenticated" @click="login">Logga in</v-btn>
+        <v-btn v-if="!$auth.isAuthenticated" @click="login" plain color="white"
+          >Logga in</v-btn
+        >
         <!-- show logout when authenticated -->
-        <v-btn v-if="$auth.isAuthenticated" @click="logout">Logga ut</v-btn>
+        <v-btn v-if="$auth.isAuthenticated" @click="logout" plain color="white"
+          >Logga ut</v-btn
+        >
       </div>
     </v-app-bar>
 
