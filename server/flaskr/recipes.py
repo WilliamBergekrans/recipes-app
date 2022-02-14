@@ -30,6 +30,6 @@ def ping_pong():
     return jsonify('pong!')
 
 
-@ bp.route('/get-recipes', method=['GET'])
+@ bp.route('/get-recipes', methods=['GET'])
 def get_recipes():
     return jsonify({'status': 'success', 'recipes': recipes})

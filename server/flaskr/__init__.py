@@ -1,7 +1,9 @@
 import os
 
-from flask import Flask, jsonify
+from flask import Flask
 from flask_cors import CORS
+
+DEBUG = True
 
 
 def create_app(test_config=None):
