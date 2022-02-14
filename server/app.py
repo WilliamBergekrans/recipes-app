@@ -1,7 +1,6 @@
-# /server.py
-
 import json
-from six.moves.urllib.request import urlopen
+
+from urllib.request import urlopen
 from functools import wraps
 
 from flask import Flask, request, jsonify, _request_ctx_stack
@@ -15,7 +14,7 @@ app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 # Error handler
-AUTH0_DOMAIN = 'dev-ey7752fa.eu.auth0.com/'
+AUTH0_DOMAIN = 'dev-ey7752fa.eu.auth0.com'
 API_AUDIENCE = "http://127.0.0.1:5000/"
 ALGORITHMS = ["RS256"]
 
@@ -73,6 +72,7 @@ def requires_auth(f):
     def decorated(*args, **kwargs):
         token = get_token_auth_header()
         jsonurl = urlopen("https://"+AUTH0_DOMAIN+"/.well-known/jwks.json")
+        print(jsonurl)
         jwks = json.loads(jsonurl.read())
         unverified_header = jwt.get_unverified_header(token)
         rsa_key = {}
