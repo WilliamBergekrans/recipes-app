@@ -10,6 +10,7 @@
 
       <v-btn
         :disabled="loading"
+        v-if="$auth.isAuthenticated"
         to="/my-recipes"
         class="ma-1"
         color="white"
@@ -19,6 +20,7 @@
       </v-btn>
       <v-btn
         :disabled="loading"
+        v-if="$auth.isAuthenticated"
         to="/inventory"
         class="ma-1"
         color="white"
