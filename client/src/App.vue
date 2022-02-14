@@ -30,6 +30,13 @@
       <v-btn :disabled="loading" to="/about" class="ma-1" color="white" plain>
         Om
       </v-btn>
+
+      <div v-if="!$auth.loading">
+        <!-- show login when not authenticated -->
+        <v-btn v-if="!$auth.isAuthenticated" @click="login">Logga in</v-btn>
+        <!-- show logout when authenticated -->
+        <v-btn v-if="$auth.isAuthenticated" @click="logout">Logga ut</v-btn>
+      </div>
     </v-app-bar>
 
     <v-main>
@@ -45,6 +52,18 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    // Log the user in
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    // Log the user out
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin,
+      });
+    },
+  },
 };
 </script>
 
