@@ -143,6 +143,16 @@ recipes = [{
 }]
 
 
+recipes_general = [{
+    "name": "Lasagne",
+    "description": "Klassisk lasagne är väl en rätt man aldrig tröttnar på? Med det här receptet blir din lasagne perfekt med en mjuk och härlig konsistens och dessutom har den en ljuv och exemplarisk smak. Parmesanosten är pricken över i!"
+},
+    {
+    "name": "Grönsaksbiffar",
+    "description": "En klassisk vegetarisk biffrätt som är god och nyttig för alla tillfällen. Kommer bli god!"
+}]
+
+
 @app.route('/ping', methods=['GET'])
 def ping_pong():
     return jsonify('pong!')
@@ -153,3 +163,9 @@ def ping_pong():
 @requires_auth
 def get_recipes():
     return jsonify({'status': 'success', 'recipes': recipes})
+
+
+@app.route('/get-recipes-general', methods=['GET'])
+@cross_origin(headers=["Content-Type"])
+def get_recipes_general():
+    return jsonify({'status': 'success', 'recipes': recipes_general})
