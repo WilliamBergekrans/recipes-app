@@ -1,3 +1,4 @@
+from flask_sqlalchemy import SQLAlchemy
 import json
 
 from urllib.request import urlopen
@@ -7,8 +8,13 @@ from flask import Flask, request, jsonify, _request_ctx_stack
 from flask_cors import cross_origin, CORS
 from jose import jwt
 
-
+# Initiate the app
 app = Flask(__name__)
+
+# Setup database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SECRET_KEY'] = "developmentSecretKey"
+db = SQLAlchemy(app)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
