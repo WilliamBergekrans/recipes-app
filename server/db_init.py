@@ -1,5 +1,5 @@
-from app import db
-from models import Recipe
+from server import db
+from server.models import Recipe
 
 db.drop_all()
 db.create_all()
